@@ -1,8 +1,8 @@
 = HasUrl
 
 Adds validations on URL attributes for ActiveRecord models.
-URL scheme will be checked and added if necessary, using Addressable::URI.
-A raw_#{attribute} will also be added to display the url without HTTP(S) scheme or trailing slash
+URL scheme will be checked and added before updating the database if necessary.
+A raw_#{attribute} method will also be added to display the url without HTTP(S) scheme or trailing slash.
 
 == Usage
 
@@ -31,12 +31,11 @@ Options :
 
 == Requirements
 
-* Shoulda for unit tests
 * Addressable for URI parsing
 
 == TODO
 
-* Make it a gem (with up to date gem depencies)
+* Make it a railtie
 * More tests
 * Improve the raw_ method stripping, and have it accept an option to specify which schemes to strip (schemes array or boolean to strip all valid schemes)
 * Add a shoulda macro (should_have_url)
