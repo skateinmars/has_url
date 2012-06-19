@@ -1,0 +1,50 @@
+= HasUrl
+
+Adds validations on URL attributes for ActiveRecord models.
+URL scheme will be checked and added if necessary, using Addressable::URI.
+A raw_#{attribute} will also be added to display the url without HTTP(S) scheme or trailing slash
+
+== Usage
+
+In your AR model:
+        has_url :attribute, options
+
+Options :
+* valid_schemes : Array of schemes or single scheme accepted for the attribute. Default ['http', 'https']
+* default_scheme : Scheme appended to the attribute if none found (supply the scheme string without '://'). Default 'http'
+* message : Provide a error string or symbol (which will be translated, see ActiveRecord::Errors#generate_message). Default :invalid
+
+== Example
+
+        class Person < ActiveRecord::Base
+          has_url :blog_link
+        end
+
+        person.blog_link = 'example.com'
+        person.save
+        person.blog_link #=> 'http://example.com/'
+        person.raw_blog_link #=> 'example.com'
+
+        class Person < ActiveRecord::Base
+          has_url [:blog_link, :website_url], :default_scheme => 'https', :valid_schemes => ['http', 'https', 'ftp']
+        end
+
+== Requirements
+
+* Shoulda for unit tests
+* Addressable for URI parsing
+
+== TODO
+
+* Make it a gem (with up to date gem depencies)
+* More tests
+* Improve the raw_ method stripping, and have it accept an option to specify which schemes to strip (schemes array or boolean to strip all valid schemes)
+* Add a shoulda macro (should_have_url)
+* Check existence of the given attributes ?
+* Optionally test the url validity with an HTTP request ?
+
+== Notes and Copyright
+
+This plugin was inspired by the {url_validation}[link:https://github.com/RISCfuture/url_validation] and {validates_url_of}[link:https://github.com/ihower/validates_url_of] plugins.
+
+Copyright (c) 2012 Pickabee. Released under the MIT licence, see LICENSE for details.
