@@ -1,5 +1,5 @@
 # encoding: utf-8
-require File.dirname(__FILE__) + '/test_helper'
+require 'test_helper'
 
 class HasUrlTest < HasUrlTestCase
   
@@ -124,7 +124,7 @@ class HasUrlTest < HasUrlTestCase
       
       should "have an invalid error on blog_link" do
         assert !@person.valid?
-        assert_equal I18n.t('activerecord.errors.messages.invalid'), @person.errors.on(:blog_link)
+        assert_equal [I18n.t('errors.messages.invalid')], @person.errors[:blog_link]
       end
     end
     
@@ -135,7 +135,7 @@ class HasUrlTest < HasUrlTestCase
       
       should "have an invalid error on blog_link" do
         assert !@person.valid?
-        assert_equal I18n.t('activerecord.errors.messages.invalid'), @person.errors.on(:blog_link)
+        assert_equal [I18n.t('errors.messages.invalid')], @person.errors[:blog_link]
       end
     end
     
@@ -146,7 +146,7 @@ class HasUrlTest < HasUrlTestCase
       
       should "have an invalid error on blog_link" do
         assert !@person.valid?
-        assert_equal I18n.t('activerecord.errors.messages.invalid'), @person.errors.on(:blog_link)
+        assert_equal [I18n.t('errors.messages.invalid')], @person.errors[:blog_link]
       end
     end
   end
@@ -211,7 +211,7 @@ class HasUrlTest < HasUrlTestCase
     should "provide a custom error message when the link is not valid" do
       @client.pro_link = "invalid"
       assert !@client.valid?
-      assert_equal 'does not respect the validations rules',  @client.errors.on(:pro_link)
+      assert_equal ['does not respect the validations rules'],  @client.errors[:pro_link]
     end
   end
   
