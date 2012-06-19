@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["LICENSE", "README.rdoc", "Gemfile", "Rakefile", "has_url.gemspec", "{lib}/**/*.rb"]
   s.test_files = Dir["{spec}/**/*.rb"]
-  s.rdoc_options = ["--line-numbers", "--charset=UTF-8", "--title", "Gandirb", "--main", "README.rdoc"]
-  s.extra_rdoc_files = %w[USAGE.rdoc CHANGELOG LICENSE]
+  s.rdoc_options = ["--line-numbers", "--charset=UTF-8", "--title", "HasUrl", "--main", "README.rdoc"]
+  s.extra_rdoc_files = %w[LICENSE]
   s.require_paths = ["lib"]
 end
