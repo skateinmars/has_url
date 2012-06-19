@@ -35,7 +35,7 @@ Options :
 
 == TODO
 
-* Make it a railtie
+* Refactor using ActiveModel::Validator
 * More tests
 * Improve the raw_ method stripping, and have it accept an option to specify which schemes to strip (schemes array or boolean to strip all valid schemes)
 * Add a shoulda macro (should_have_url)

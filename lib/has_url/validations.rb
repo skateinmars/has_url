@@ -1,9 +1,8 @@
-require 'active_record'
 require 'addressable/uri'
 
 module HasUrl # :nodoc:
   module Validations
-    
+
     # This allows you to specify attributes you want to define as containing
     # a url. This will validate the URI and prepend a http scheme if needed.
     # Provide this with a required attributes array (or a single attribute symbol) and an options hash.

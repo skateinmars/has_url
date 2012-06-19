@@ -1,5 +1,4 @@
 # encoding: utf-8
-require 'rubygems'
 require 'test/unit'
 require 'active_support'
 require 'active_support/test_case'
@@ -7,7 +6,8 @@ require 'active_record'
 require 'sqlite3'
 require 'shoulda'
 
-require File.expand_path( File.join(File.dirname(__FILE__), %w[.. lib has_url]) )
+require 'has_url/hooks'
+HasUrl::Hooks.init
 
 class Person < ActiveRecord::Base
   validates_presence_of :name
