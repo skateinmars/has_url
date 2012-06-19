@@ -1,5 +1,5 @@
 module HasUrl
-  class Hooks
+  class Hooks # :nodoc:
     def self.init
       if defined?(ActiveRecord)
         require 'has_url/validations'

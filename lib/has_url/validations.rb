@@ -9,19 +9,19 @@ module HasUrl # :nodoc:
     #
     # ==== Examples
     #
-    # class Person < ActiveRecord::Base
-    #   has_url :blog_link
-    # end
+    #   class Person < ActiveRecord::Base
+    #     has_url :blog_link
+    #   end
     #
-    # class Person < ActiveRecord::Base
-    #   has_url [:blog_link, :website_url]
-    # end
+    #   class Person < ActiveRecord::Base
+    #     has_url [:blog_link, :website_url]
+    #   end
     #
     # ===== Using options
     #
-    # class Person < ActiveRecord::Base
-    #   has_url :blog_link, {:valid_schemes => ['http', 'https', 'ftp'], :default_scheme => 'http', :message => 'does not look like a valid url'}
-    # end
+    #   class Person < ActiveRecord::Base
+    #     has_url :blog_link, {:valid_schemes => ['http', 'https', 'ftp'], :default_scheme => 'http', :message => 'does not look like a valid url'}
+    #   end
     #
     def has_url(attributes, options = {})
       attributes = [attributes].flatten
